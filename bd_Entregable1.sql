@@ -83,4 +83,10 @@ INSERT INTO courses_videos (id_course, id_video) VALUES(1,1),(4,2),(3,3),(2,3);
 
 
 
-SELECT  users.firstname, courses.title_curse, roles.name_role, categories.name_categories, videos.url  FROM users JOIN users_courses ON users.id=users_courses.id_user JOIN courses ON users_courses.id_course=courses.id JOIN roles ON roles.id=users.id_rol JOIN courses_categories ON courses_categories.id_course=courses.id JOIN categories ON categories.id=courses_categories.id_categori JOIN courses_videos ON courses_videos.id_course=courses.id JOIN videos ON videos.id=courses_videos.id_video;
+SELECT  users.firstname, roles.name_role,courses.title_curse,  categories.name_categories, videos.url  FROM users JOIN users_courses ON users.id=users_courses.id_user JOIN courses ON users_courses.id_course=courses.id JOIN roles ON roles.id=users.id_rol JOIN courses_categories ON courses_categories.id_course=courses.id JOIN categories ON categories.id=courses_categories.id_categori JOIN courses_videos ON courses_videos.id_course=courses.id JOIN videos ON videos.id=courses_videos.id_video WHERE  roles.id=1;
+
+SELECT  users.firstname, roles.name_role, courses.title_curse,  categories.name_categories, videos.url  FROM users JOIN users_courses ON users.id=users_courses.id_user JOIN courses ON users_courses.id_course=courses.id JOIN roles ON roles.id=users.id_rol JOIN courses_categories ON courses_categories.id_course=courses.id JOIN categories ON categories.id=courses_categories.id_categori JOIN courses_videos ON courses_videos.id_course=courses.id JOIN videos ON videos.id=courses_videos.id_video WHERE  roles.id=2;
+
+SELECT  users.firstname AS teacher, courses.title_curse, courses.level, roles.name_role FROM users JOIN users_courses ON users.id=users_courses.id_user JOIN courses ON users_courses.id_course=courses.id JOIN roles ON roles.id=users.id_rol WHERE  roles.id=2;
+
+SELECT  users.firstname AS student, courses.title_curse, courses.level, roles.name_role FROM users JOIN users_courses ON users.id=users_courses.id_user JOIN courses ON users_courses.id_course=courses.id JOIN roles ON roles.id=users.id_rol WHERE  roles.id=1;
